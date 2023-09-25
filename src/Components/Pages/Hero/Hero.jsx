@@ -11,7 +11,7 @@ const Hero = () => {
             </div>
 
 
-            <div className="absolute min-h-screen py-28 -mt-96 ml-28">
+            <div className="absolute min-h-screen py-10 -mt-96 ml-28">
                 <div className=" text-center">
                     <div className=" text-black ">
                         <h1 className="text-5xl font-bold pb-10">I Grow By Helping People In Need</h1>

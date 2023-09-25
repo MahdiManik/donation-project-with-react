@@ -5,13 +5,15 @@ import Nav from "../Pages/Nav/Nav";
 
 
 const MainLayout = () => {
-    
 
-    
+
+
     return (
-        <div className="container mx-auto">
+        <div className="container mx-auto mt-6">
             <Nav></Nav>
-            <Outlet></Outlet>
+            <div className="py-10">
+                <Outlet></Outlet>
+            </div>
 
         </div>
     );

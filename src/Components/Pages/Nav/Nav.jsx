@@ -29,7 +29,7 @@ const Nav = () => {
                         <NavLink to="/static" className={({ isActive, isPending }) =>
                             isPending ? "pending" : isActive ? "underline text-red-500" : ""
                         }>
-                            Static
+                            Statistics
                         </NavLink>
                     </li>
                 </ul>

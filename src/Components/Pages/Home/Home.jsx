@@ -4,7 +4,7 @@ import Hero from "../Hero/Hero";
 
 const Home = () => {
 
-    const categories = useLoaderData([]);
+    const categories = useLoaderData();
 
     const allData = categories.categories;
 

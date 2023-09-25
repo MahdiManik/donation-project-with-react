@@ -2,7 +2,7 @@ import { createBrowserRouter } from 'react-router-dom';
 import MainLayout from '../Layout/MainLayout';
 import Home from '../Pages/Home/Home';
 import Donation from '../Pages/Donation/Donation';
-import Static from '../Pages/Static/Static';
+import Statistics from '../Static/Statistics';
 import Data from '../Data/Data';
 
 
@@ -20,7 +20,8 @@ const CreateRoute = createBrowserRouter([
             },
             {
                 path: '/static',
-                element: <Static>pr</Static>
+                element: <Statistics></Statistics>,
+                loader: () => fetch("../../../public/data.json")
             },
             {
                 path: '/donation',

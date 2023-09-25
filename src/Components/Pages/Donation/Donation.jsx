@@ -1,42 +1,68 @@
+import { useEffect, useState } from "react";
+import DonationCard from "./DonationCard";
 
 
-const Donation = ({ category }) => {
+const Donation = () => {
+    const [donation, setDonation] = useState([]);
+    const [noFound, setNoFound] = useState(false);
+    const [isShow, setIsShow] = useState(false)
+
+    const [totalPrice, setTotalPrice] = useState(0)
+
+    useEffect(() => {
+        const donationItems = JSON.parse(localStorage.getItem("donation"));
+
+        if (donationItems) {
+            setDonation(donationItems);
+
+            const total = donationItems.reduce((preValue, currentItem) => preValue + currentItem.price, 0)
 
 
-
-    const handleDonation = () => {
-        console.log(category);
-    }
+            setTotalPrice(total)
 
 
+        } else {
+            setNoFound("No Data Found");
+        }
+    }, []);
 
-    const { title, image, background_color,
-        button_background_color, button_text_color, price, description } = category;
+
 
     return (
-        <div className="my-20">
-            <div className="rounded-md my-16 pb-12 flex flex-col gap-4" style={{ backgroundColor: background_color }}>
+        <div>
+            {noFound ? (
+                <p className="flex justify-center items-center">{noFound}</p>
+            ) : (
+                <div>
+                    {donation.length > 0 && (
+                        <div>
+                            <h1>Total price : {totalPrice}</h1>
+                        </div>
+                    )}
 
-                <div className="relative">
-                    <img className="w-full rounded-md" src={image} alt="" />
+                    <div className="grid md:grid-cols-2 gap-6">
+                        {
+                            isShow ? donation.map((categoryId) => (
+                                <DonationCard key={categoryId.id} categoryId={categoryId}></DonationCard>
+                            ))
 
-                    <div
-                        className="absolute bottom-0 left-0 right-0 py-3
-                                 bg-black bg-opacity-50"
-                        style={{ backgroundColor: button_background_color }}
-                    >
-                        <button onClick={handleDonation} className="text-white font-semibold w-32 ml-6 py-1 px-2 rounded-md" 
-                        style={{ backgroundColor: button_text_color }}>Donation ${price}</button>
+                                : donation.slice(0, 4).map((categoryId) => (
+                                    <DonationCard key={categoryId.id} categoryId={categoryId}></DonationCard>
+                                    ))
+                                    
+                        }
                     </div>
-                </div>
 
-                <div className="m-6">
-                    <h3 className='text-2xl font-bold'>{title}</h3>
-                    <h3 className=''>{description}</h3>
+                    {donation.length > 4 && 
+                    <button onClick={() => setIsShow(!isShow)} className="px-5
+                     bg-green-600 block mx-auto rounded-md mt-6 text-white font-semibold py-1">
+                        {isShow ? "See less" : "See more"}
+                    </button>}
                 </div>
-            </div>
+            )}
         </div>
     );
 };
+
 
 export default Donation;
