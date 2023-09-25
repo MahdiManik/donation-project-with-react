@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import { useLoaderData, useParams } from "react-router-dom";
+import CategoryCard from "../categoryCard/CategoryCard";
+
 
 const Data = () => {
     const [category, setCategory] = useState({});
@@ -16,27 +18,15 @@ const Data = () => {
 
     }, [categories, idInt]);
 
-    const { title, image, background_color,
-        button_text, button_background_color, button_text_color, } = category;
+   
 
 
     return (
         <>
 
-            <div className="rounded-md my-16 pb-12 flex flex-col gap-4" style={{ backgroundColor: background_color }}>
+        <CategoryCard key={category.id} category={category}></CategoryCard>
 
-                <div>
-                    <img className="w-full rounded-md" src={image} alt="" />
-                </div>
-
-                <div>
-                    <h3 className='' style={{
-                        backgroundColor: button_background_color,
-                        color: button_text_color
-                    }}>{button_text}</h3>
-                    <h3 className='mx-4' style={{ color: button_text_color }}>{title}</h3>
-                </div>
-            </div>
+            
         </>
     );
 };
