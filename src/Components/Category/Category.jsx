@@ -8,6 +8,8 @@ const Category = ({ category }) => {
         button_text, button_background_color, button_text_color, } = category;
 
 
+
+
     return (
 
 
@@ -22,6 +24,7 @@ const Category = ({ category }) => {
                     color: button_text_color
                 }}>{button_text}</h3>
                 <h3 className='mx-4' style={{ color: button_text_color }}>{title}</h3>
+
             </Link>
 
         </>

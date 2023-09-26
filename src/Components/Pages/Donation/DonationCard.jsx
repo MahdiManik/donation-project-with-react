@@ -3,8 +3,6 @@ import PropTypes from 'prop-types';
 
 const DonationCard = (categoryId) => {
 
-    console.log({ categoryId });
-
     const { title, button_text, image, background_color,
         button_background_color, button_text_color, price } = categoryId.categoryId || {};
 

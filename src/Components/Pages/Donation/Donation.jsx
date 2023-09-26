@@ -34,9 +34,11 @@ const Donation = () => {
                 <p className="flex justify-center items-center">{noFound}</p>
             ) : (
                 <div>
+                    <h1 className="text-2xl font-bold text-center bg-green-400 py-6 rounded-lg">Donation Card</h1>
                     {donation.length > 0 && (
-                        <div>
-                            <h1>Total price : {totalPrice}</h1>
+                        <div className="py-12 text-xl font-semibold">
+
+                            <h1>Total Donation : {totalPrice}</h1>
                         </div>
                     )}
 

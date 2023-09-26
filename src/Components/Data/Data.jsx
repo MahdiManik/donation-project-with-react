@@ -13,7 +13,7 @@ const Data = () => {
     useEffect(() => {
 
 
-        const findData = categories?.categories?.find((data) => data.id === idInt);
+        const findData = categories?.find((data) => data.id === idInt);
         setCategory(findData);
 
     }, [categories, idInt]);
