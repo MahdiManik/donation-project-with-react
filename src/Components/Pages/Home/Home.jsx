@@ -8,12 +8,9 @@ const Home = () => {
 
     const categories = useLoaderData();
 
-
     const [displayCategory, setDisplayCategory] = useState(categories);
 
     const [searchInput, setSearchInput] = useState("");
-
-
 
     const handleSearchClick = () => {
 
@@ -28,8 +25,6 @@ const Home = () => {
         setDisplayCategory(filteredItem);
 
     };
-
-
 
 
     return (

@@ -54,7 +54,8 @@ const CategoryCard = ({ category }) => {
                                  bg-black bg-opacity-40"
 
                     >
-                        <button onClick={handleDonation} className="text-white font-semibold w-32 ml-6 py-1 px-2 rounded-md"
+                        <button onClick={handleDonation} className="
+                        text-white font-semibold w-32 ml-6 py-1 px-2 rounded-md"
                             style={{ backgroundColor: button_text_color }}>Donation ${price}</button>
                     </div>
                 </div>
